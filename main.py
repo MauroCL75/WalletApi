@@ -66,7 +66,7 @@ async def mkwallet(wallet_pass:str, env_type: str, ip: str,
 
         for name in names:
             tstr = "%s\n%s"%(tstr, mkTns(name, env_type, ip, port, service_name))
-        with open('%s/tnsname.ora'%(workdir), 'w') as file:
+        with open('%s/tnsnames.ora'%(workdir), 'w') as file:
             file.write(tstr)
         with open('%s/sqlnet.ora'%(workdir), 'w') as file:
             file.write(mkSQLNET(workdir))
