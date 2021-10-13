@@ -1,0 +1,3 @@
+[submodule "PortableWallet"]
+	path = PortableWallet
+	url = https://github.com/MauroCL75/PortableWallet.git

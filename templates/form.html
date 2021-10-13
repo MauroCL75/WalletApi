@@ -1,0 +1,44 @@
+<html>
+    <meta charset="UTF-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://www.almaobservatory.org/wp-content/themes/alma-v2/favicon.png">
+    <title>Test form</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <script src="/go.js"></script>
+    </head>
+
+<body>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <div class="pure-g">
+        <div class="pure-u-1-3">
+            <p></p>
+        </div>
+        <div class="pure-u-1-3">
+            <h1>Wallet form</h1><br><br>
+            <p></p>
+            <form class="pure-form" id="walletForm" method="POST" enctype="multipart/form-data" target="dummyframe">
+                <fieldset>
+                    <legend>Please enter the required information to get your wallet zip.</legend>
+                    <input id="wallet_pass" type="password" name="wallet_pass" placeholder="wallet password" oninput="CheckPassword(this)"/> length>8, alphanumeric<br>
+                    <input type="text" name="ip" placeholder="ip" id="ip"/>
+                    <input type="text" name="port" placeholder="port" id="port" />
+                    <input type="text" name="service_name" placeholder="service name" id="service_name" /><br>
+                    Password file: <input type="file" name="file" id="file"/><br>
+                    Environment: <select id="env_type">
+                        <option value="production">production</option>
+                        <option value="testing" selected>testing</option>
+                    </select>
+                    <br>
+                    <button id="action" class="pure-button-disabled pure-button-primary" onclick="getWallet(this); this.disabled=true; this.value='Sending…';">Send it</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="pure-u-1-3">
+            <p></p>
+        </div>
+    </div>
+</body>
+
+</html>
