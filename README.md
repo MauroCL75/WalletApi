@@ -63,7 +63,8 @@ Ways to use this:
 
 2-The html way. Please fill [this form](/form)
 
-3-Use the provided python script:
+3-Use the [provided python script](https://github.com/MauroCL75/WalletApi/raw/main/client.py). See the source code:
+
     python client.py --help
 
 # Templates
@@ -73,3 +74,7 @@ You can modify the sqlnet and tnsnames templates to match your needs. They are b
 # Dependency
 
 This API depends on the [PortableWallet](https://github.com/MauroCL75/PortableWallet).
+
+# Source code
+
+Hosted at github. It's available [here](https://github.com/MauroCL75/WalletApi). You cloud be there actually.
