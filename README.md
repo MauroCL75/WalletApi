@@ -54,13 +54,17 @@ Go to the [main page](http://localhost:8000)
 
 # Using this
 
-Two ways to use this:
+Ways to use this:
 
 1-The curl way. You could run for example:
 
-    curl --form "file=@test.txt" localhost:8000/wallet/wallpass123/test/oracle-server.ip.at.work/1521/service.name.here --output /tmp/allw.zip
+    curl --form "file=@test.txt"  --form 'awallet={"wallet_pass": "myoasshere", "env_type": "testing", "ip": "ora.ip.at.work.com", "port": 1521, "service_name": "ORCL"}'
+    localhost:8000/wallet/ --output /tmp/allw.zip
 
 2-The html way. Please fill [this form](/form)
+
+3-Use the provided python script:
+    python client.py --help
 
 # Templates
 

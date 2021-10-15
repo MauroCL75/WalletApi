@@ -31,12 +31,16 @@ function getWallet(){
     var env_type = document.getElementById("env_type").value
     var ip = document.getElementById("ip").value
     var port = document.getElementById("port").value
+    var workdir = document.getElementById("workdir").value
     var service_name = document.getElementById("service_name").value
-    var url = "/wallet/"+wallet_pass+"/"+env_type+"/"+ip+"/"+port+"/"+service_name
+    var url = "/wallet/"
+    var indata = {"wallet_pass": wallet_pass, "env_type": env_type, "ip": ip, "port": port, "service_name": service_name, "workdir": workdir}
     console.log("url "+url);
+    console.log(JSON.stringify(indata))
     var f = document.getElementById("file").files[0]
     formData = new FormData();
     formData.append("file", f)
+    formData.append("awallet", JSON.stringify(indata))
     fetch(url,  {method: "POST", body: formData}).then( res => res.blob() )
     .then( blob => {
       var file = window.URL.createObjectURL(blob);

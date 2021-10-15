@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <meta charset="UTF-8">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,9 @@
                     Environment: <select id="env_type">
                         <option value="production">production</option>
                         <option value="testing" selected>testing</option>
-                    </select>
+                    </select><br>
+                    <input type="text" name="workdir" placeholder="tns names location" id="workdir"/>
+
                     <br>
                     <button id="action" class="pure-button-disabled pure-button-primary" onclick="getWallet(this); this.disabled=true; this.value='Sending…';">Send it</button>
                 </fieldset>
