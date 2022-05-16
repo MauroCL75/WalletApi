@@ -39,7 +39,7 @@ function getWallet(){
     console.log(JSON.stringify(indata))
     var f = document.getElementById("file").files[0];
     var spin = document.getElementById("spin");
-    spin.hidden = false;
+    spin.removeAttribute("hidden");
     formData = new FormData();
     formData.append("file", f)
     formData.append("awallet", JSON.stringify(indata))
@@ -47,7 +47,7 @@ function getWallet(){
     .then( blob => {
       var file = window.URL.createObjectURL(blob);
       window.location.assign(file);
-      spin.hidden = true;
+      spin.setAttribute("hidden", "");
     });
     return false;
 }
