@@ -37,7 +37,9 @@ function getWallet(){
     var indata = {"wallet_pass": wallet_pass, "env_type": env_type, "ip": ip, "port": port, "service_name": service_name, "workdir": workdir}
     console.log("url "+url);
     console.log(JSON.stringify(indata))
-    var f = document.getElementById("file").files[0]
+    var f = document.getElementById("file").files[0];
+    var spin = document.getElementById("spin");
+    spin.hidden = false;
     formData = new FormData();
     formData.append("file", f)
     formData.append("awallet", JSON.stringify(indata))
@@ -45,6 +47,7 @@ function getWallet(){
     .then( blob => {
       var file = window.URL.createObjectURL(blob);
       window.location.assign(file);
+      spin.hidden = true;
     });
     return false;
 }
