@@ -12,8 +12,12 @@ from pydantic import BaseModel, Json
 from helper import *
 
 import logging
-logger = logging.getLogger('CORE')
-logger.info('CORE started!')
+import logging.config
+
+logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
+
+logger = logging.getLogger(__name__)
+logger.info('App started!')
 
 app = FastAPI()
 
@@ -47,7 +51,6 @@ async def mkwallet(file: bytes=File(...), awallet: Json[walletItem]=Form(...)):
     pfile = "deleteme"
 
     content = file.decode()
-    print(content)
     with open(pfile, "w") as f:
         f.write(content)
     workdir = ""
@@ -56,6 +59,7 @@ async def mkwallet(file: bytes=File(...), awallet: Json[walletItem]=Form(...)):
         time.sleep(1)
         workdir = tmpdirname
         out = mkWallet(workdir, awallet.wallet_pass)
+        time.sleep(2)
         os.chdir(homedir)
         names = []
         with open(pfile) as f:
@@ -76,11 +80,6 @@ async def mkwallet(file: bytes=File(...), awallet: Json[walletItem]=Form(...)):
             file.write(mkSQLNET(awallet.workdir))
         shutil.make_archive("%szip"%(workdir), 'zip', "/tmp/", workdir.replace("/tmp/", ""))
         os.remove(pfile)
-        #with open("%szip.zip"%(workdir), 'rb') as azipfile:
-        #    azipfile.seek(0)
-        #    response = FileResponse(azipfile, media_type="application/x-zip-compressed")
-        #    response.headers["Content-Disposition"] = "attachment; filename=mywallet.zip"
-        #    return response
         return FileResponse("%szip.zip"%(workdir), media_type="application/x-zip-compressed")
 
 #mktnsname

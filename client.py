@@ -1,8 +1,12 @@
+#!/usr/bin/python3
 import requests
 import argparse
 import json
+import logging
 from pprint import pprint
 
+logger = logging.getLogger(__name__)
+logging.info("Client starting")
 
 def params():
     parser = argparse.ArgumentParser(description='A client for the wallet API')
@@ -35,9 +39,9 @@ def go(p):
         wfile = f.read()
     data = {"awallet": json.dumps(wdata)}
 
-    print(data)
+    logging.info("data sent %s",data)
     print(type(wfile))
-    r = requests.post(p.api_url, data=data, files={"file": ("afile.txt", wfile, "text/plain")}, stream=True)
+    r = requests.post(p.api_url, data=data, files={"file": ("afile.txt", wfile, "text/plain")}, stream=True, verify=False)
     with open(p.output, 'wb') as f:
         for chunk in r.iter_content(chunk_size=1024): 
             if chunk:
