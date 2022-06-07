@@ -59,7 +59,6 @@ async def mkwallet(file: bytes=File(...), awallet: Json[walletItem]=Form(...)):
         time.sleep(1)
         workdir = tmpdirname
         out = mkWallet(workdir, awallet.wallet_pass)
-        time.sleep(2)
         os.chdir(homedir)
         names = []
         with open(pfile) as f:

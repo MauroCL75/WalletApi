@@ -55,7 +55,7 @@ Ways to use this:
 
 1-The curl way. You could run for example:
 
-    curl --form "file=@test.txt"  --form 'awallet={"wallet_pass": "mypasshere", "env_type": "testing", "ip": "ora.ip.at.work.com", "port": 1521, "service_name": "ORCL"}'
+    curl --form "file=@test.txt"  --form 'awallet={"wallet_pass": "mypasshere", "workdir": "/where/the/wallet/and/tns/will/live", "env_type": "testing", "ip": "ora.ip.at.work.com", "port": 1521, "service_name": "ORCL"}'
     localhost:8000/wallet/ --output /tmp/allw.zip
 
 2-The html way. Please fill [this form](/form)
