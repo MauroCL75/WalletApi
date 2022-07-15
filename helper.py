@@ -49,10 +49,12 @@ def mkWallet(directory, wallet_pass):
     estatus = cmd
     return {"mkWallet": estatus}
 
-def addWallet(directory, wallet_pass, login, password, env):
+def addWallet(directory, wallet_pass, login, password, env=None):
     '''Add a tns, schema and password'''
     os.chdir(PWALLETDIR)
-    tname = "%s_%s"%(login.upper(), env.upper())
+    tname = login.upper()
+    if (env!=None):
+        tname = "%s_%s"%(login.upper(), env.upper())
 
     opts = "%s %s %s %s %s"%(directory, tname, 
         login, password, wallet_pass)
@@ -63,12 +65,12 @@ def addWallet(directory, wallet_pass, login, password, env):
     estatus = cmd
     return {"addWallet": estatus}
 
-def formPage():
+def formPage(page="form.html", tempdir="./templates"):
     '''Simple form to test this'''
-    file_loader = jinja2.FileSystemLoader('./templates')
+    file_loader = jinja2.FileSystemLoader(tempdir)
     env = jinja2.Environment(loader=file_loader)
     out = ""
-    template = env.get_template("form.html")
+    template = env.get_template(page)
     out = template.render()
     return out
 

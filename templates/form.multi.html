@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://www.almaobservatory.org/wp-content/themes/alma-v2/favicon.png">
+    <title>Test form</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/solid.min.css" integrity="sha512-qzgHTQ60z8RJitD5a28/c47in6WlHGuyRvMusdnuWWBB6fZ0DWG/KyfchGSBlLVeqAz+1LzNq+gGZkCSHnSd3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="/go.multi.js"></script>
+    </head>
+
+<body>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <div class="pure-g">
+        <div class="pure-u-1-24">
+            <p></p>
+        </div>
+        <div class="pure-u-22-24">
+            <h1>Wallet form</h1><br><br>
+            <p>This form allow to create a single wallet with multiple users and databases. The tnsname alias of each connection will be USER_ALIAS.</p>
+            <form class="pure-form" id="walletForm" method="POST" enctype="multipart/form-data" target="dummyframe">
+                <fieldset>
+                    <legend>Please enter the required information to get your wallet zip. Add all the database you need first. Add a single file per datbase.</legend>
+                    <input id="wallet_pass" type="password" name="wallet_pass" placeholder="wallet password" oninput="CheckPassword(this)"/><input type="text" name="workdir" placeholder="tns names location" id="workdir"/><br>
+                    <p id="dbs"></p>
+                    
+                    <br>
+
+                    <br>
+                    <button id="action" class="pure-button-disabled pure-button-primary" onclick="getWalletMulti(this); this.disabled=true; this.value='Sending…';">Send it</button>
+                </fieldset>
+ <div class="fa-3x">
+    <i id="spin" class="fa-solid fa-spinner fa-spin" hidden></i></div>
+            </form>
+        </div>
+        <div class="pure-u-1-24">
+            <p></p>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</html>

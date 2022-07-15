@@ -51,7 +51,11 @@ Go to the [main page](http://localhost:8000)
 
 # Using this
 
-Ways to use this:
+90% of cases will use a single wallet or a single user connection. If you want to have multiple databases on a single wallet look at the multi database section.
+
+# Single wallet
+
+This assume that you are connecting to a single database with one or more users.
 
 1-The curl way. You could run for example:
 
@@ -63,6 +67,20 @@ Ways to use this:
 3-Use the [provided python script](https://github.com/MauroCL75/WalletApi/raw/main/client.py). See the source code:
 
     python client.py --help
+
+#Multi database
+
+This assume that you are connecting to  one or more databases with one or more users. Each server must have its own password file. The connection will be something like
+    SCHEMA_ALIAS
+
+1-The curl way. You could run for example:
+
+    curl --form "file=@f1.txt"  --form "files=@f2" --form 'awallet='{"wallet_pass":"walletPassHere_","workdir":"","dbs":[{"ip":"ora1.work.com","port":"2222","service_name":"ORCL","env_type":"db1"},{"ip":"ora2.work.com","port":"2321","service_name":"ORCL2","env_type":"db2"}]}
+    localhost:8000/wallet/ --output /tmp/allw.zip
+
+2-The html way. Please fill [this form](/form.multi)
+
+3-WIP
 
 # Templates
 
