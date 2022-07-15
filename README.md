@@ -76,7 +76,7 @@ This assume that you are connecting to  one or more databases with one or more u
 1-The curl way. You could run for example:
 
     curl --form "file=@f1.txt"  --form "files=@f2" --form 'awallet='{"wallet_pass":"walletPassHere_","workdir":"","dbs":[{"ip":"ora1.work.com","port":"2222","service_name":"ORCL","env_type":"db1"},{"ip":"ora2.work.com","port":"2321","service_name":"ORCL2","env_type":"db2"}]}
-    localhost:8000/wallet/ --output /tmp/allw.zip
+    localhost:8000/wallet.multi/ --output /tmp/allw.zip
 
 2-The html way. Please fill [this form](/form.multi)
 
