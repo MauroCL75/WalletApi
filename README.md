@@ -68,7 +68,7 @@ This assume that you are connecting to a single database with one or more users.
 
     python client.py --help
 
-#Multi database
+# Multi database
 
 This assume that you are connecting to  one or more databases with one or more users. Each server must have its own password file. The connection will be something like
     SCHEMA_ALIAS
