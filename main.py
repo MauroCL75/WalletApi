@@ -61,7 +61,7 @@ async def mainProg():
     msg = formPage()
     return msg
 
-@app.get("/form2", response_class=HTMLResponse)
+@app.get("/form.multi", response_class=HTMLResponse)
 async def mainProg():
     '''Welcome page'''
     msg = formPage("form.multi.html")
@@ -104,7 +104,7 @@ async def mkwallet(file: bytes=File(...), awallet: Json[walletItem]=Form(...)):
         return FileResponse("%szip.zip"%(workdir), media_type="application/x-zip-compressed")
 
 @app.post("/wallet.multi/", response_class=FileResponse)
-async def mkwallet(files: list[bytes]=File(), awallet: Json[walletMultiItem]=Form(...)):
+async def mkwallet(files: list[bytes]=File(...), awallet: Json[walletMultiItem]=Form(...)):
     i = 0
     #print("files: %s"%(len(files)))
     #return {"file_sizes": [len(file) for file in files]}
